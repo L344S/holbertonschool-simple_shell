@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	char *prompt = "(S) ";
+	char *prompt = "<3 ";
 
 	while (1)
 	{
