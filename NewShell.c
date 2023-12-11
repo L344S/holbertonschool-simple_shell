@@ -1,15 +1,15 @@
 #include "header.h"
 
 /**
- * main - entry point
- * @argc: argument count
- * @argv: arguments passed
- * Return: Always 0 on success
- */
+* main - entry point
+* @argc: argument count
+* @argv: arguments passed
+* Return: Always 0 on success
+*/
 
-int main(int argc, char **argv)
+int main(void)
 {
-	char *prompt = "(S)";
+	char *prompt = "(S) ";
 
 	while (1)
 	{
@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 		printf("%s", prompt);
 
 		/* Read user input (you can use fgets) */
+		read_line();
 		/* ... Parse and execute the command */
 	}
 

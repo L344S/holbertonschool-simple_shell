@@ -9,7 +9,7 @@ char *read_line(void)
 	char *line = NULL;
 
 	/* initialize taille du buffer à 0 */
-	ssize_t bufsize = 1024;
+	size_t bufsize = 1024;
 
     /* utlise getline pour lire la ligne */
 	if (getline(&line, &bufsize, stdin) == -1) /* si erreur */
