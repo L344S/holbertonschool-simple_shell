@@ -11,6 +11,5 @@ int custom_prompt(void)
 	char *prompt = "<3 ";
 	/* Print the prompt */
 	printf("%s", prompt);
-
 	return (0);
 }
