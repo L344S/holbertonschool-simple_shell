@@ -8,8 +8,8 @@ char *read_line(void)
 	/* initialize pointeur vers une ligne à NULL */
 	char *line = NULL;
 
-	/* initialize taille du buffer à 0 */
-	size_t bufsize = 1024;
+	/* initialize taille du buffer  */
+	size_t bufsize = BUFSIZE;
 
     /* utlise getline pour lire la ligne */
 	if (getline(&line, &bufsize, stdin) == -1) /* si erreur */
