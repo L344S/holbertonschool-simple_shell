@@ -24,7 +24,6 @@ char *read_line(void)
 				exit(EXIT_FAILURE); /* quitte (échec) */
 			}
 	}
-
     /* retourne la ligne lue */
 	return (line);
 }
