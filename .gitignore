@@ -1,2 +1,5 @@
 # excutable file
 hsh
+mypid
+myppid
+pid_max
