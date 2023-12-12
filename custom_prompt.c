@@ -1,12 +1,13 @@
-#include "header.h"
+#include "shell.h"
 
 /**
 * show_prompt - entry point
 * Return: Always 0 on success
 */
 
-int show_prompt(void)
+int custom_prompt(void)
 {
+	/* Define */
 	char *prompt = "<3 ";
 
 	/* Print the prompt */
