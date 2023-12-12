@@ -14,8 +14,7 @@ int main(void)
 	/* Read user input */
 	read_line();
 	/* execute the command */
-	
-	
+
     /** Call the function with the specified path */
     listFilesInDirectory(path);
 	}
