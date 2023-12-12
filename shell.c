@@ -17,6 +17,8 @@ int main(void)
 
     /** Call the function with the specified path */
     listFilesInDirectory(path);
+	
+	listFiles(path);
 	}
 
 	return (0);

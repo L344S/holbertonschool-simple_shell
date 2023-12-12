@@ -17,4 +17,6 @@ char *read_line(void);
 
 void listFilesInDirectory(const char *path);
 
+void listFiles(const char *path);
+
 #endif

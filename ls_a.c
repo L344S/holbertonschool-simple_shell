@@ -1,5 +1,6 @@
+
 #include "shell.h"
-void listFiles(const char *path) {
+void listFilesInDirectory(const char *path) {
     DIR *dir;
     struct dirent *entry;
 
@@ -14,10 +15,7 @@ void listFiles(const char *path) {
 
     /** Read and print information about each entry in the directory */
     while ((entry = readdir(dir)) != NULL) {
-        /** Skip entries that start with a dot (hidden files) */
-        if (entry->d_name[0] != '.') {
-            printf("%s\t", entry->d_name);
-        }
+        printf("%s\t", entry->d_name);
     }
 
     /** Close the directory */
