@@ -10,7 +10,7 @@
 #define BUFSIZE 1024
 
 /* NewShell.c -> printing a prompt */
-int main(void);
+int show_prompt(void);
 /* read_line.c -> reading the user input */
 char *read_line(void);
 
