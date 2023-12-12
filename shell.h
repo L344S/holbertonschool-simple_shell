@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <dirent.h>
 
 /* Macros */
 #define BUFSIZE 1024
@@ -13,5 +14,7 @@
 int custom_prompt(void);
 /* read_line.c -> reading the user input */
 char *read_line(void);
+
+void listFilesInDirectory(const char *path);
 
 #endif

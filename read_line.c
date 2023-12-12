@@ -18,7 +18,7 @@ char *read_line(void)
 		{
 			exit(EXIT_SUCCESS); /* quitte (succès) */
 			}
-			else /* si il y a une erreur */
+			else /* si il""" y a une erreur */
 			{
 				perror("readline"); /* affiche l'erreur */
 				exit(EXIT_FAILURE); /* quitte (échec) */

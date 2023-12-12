@@ -5,6 +5,8 @@
 */
 int main(void)
 {
+	const char *path = ".";  /** Default to current directory */
+
 	while (1)
 	{
 	/* Print the prompt */
@@ -12,6 +14,10 @@ int main(void)
 	/* Read user input */
 	read_line();
 	/* execute the command */
+	
+	
+    /** Call the function with the specified path */
+    listFilesInDirectory(path);
 	}
 
 	return (0);
