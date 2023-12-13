@@ -1,5 +1,2 @@
-# excutable file
-hsh
-mypid
-myppid
-pid_max
+# Ignore everything in SSS directory
+SSS/

@@ -5,6 +5,7 @@
 */
 int main(void)
 {
+	char *line;
 	const char *path = ".";  /** Default to current directory */
 
 	while (1)
@@ -15,9 +16,9 @@ int main(void)
 	read_line();
 	/* execute the command */
 
-    /** Call the function with the specified path */
-    listFilesInDirectory(path);
-	
+	/** Call the function with the specified path */
+	listFilesInDirectory(path);
+
 	listFiles(path);
 	}
 
