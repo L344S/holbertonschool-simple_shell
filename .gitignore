@@ -1,2 +1,4 @@
 # Ignore everything in SSS directory
 SSS/
+# Ignore executable files
+hsh
