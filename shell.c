@@ -1,12 +1,17 @@
 #include "shell.h"
 /**
-* main - entry point
+* main - entry point to our shell
+* @argc: variable that counts the number of arguments passed to the program
+* @argv: array of strings containing the arguments passed to the program
 * Return: Always 0 on success
 */
-int main(void)
+int main(int argc, char **argv)
 {
-	char *line;
-	const char *path = ".";  /** Default to current directory */
+	/* variables */
+	const char *path = ".";  /* Default to current directory */
+	/* (void) prevent unused variable error */
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
@@ -16,7 +21,7 @@ int main(void)
 	read_line();
 	/* execute the command */
 
-	/** Call the function with the specified path */
+	/* Call the function with the specified path */
 	listFilesInDirectory(path);
 
 	listFiles(path);
