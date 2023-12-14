@@ -1,23 +1,32 @@
-
 #include "shell.h"
-void listFilesInDirectory(const char *path) {
-    DIR *dir;
-    struct dirent *entry;
+/**
+* listFilesInDirectory - entry point
+* @path: path to the directory to list
+* Description: lists all files and sub-directories of a directory
+* Return: Always 0 on success
+*/
+void listFilesInDirectory(const char *path)
+{
 
-    /** Open the specified directory */
-    dir = opendir(path);
+	DIR *dir;
+	struct dirent *entry;
 
-    /** Check if the directory is opened successfully */
-    if (dir == NULL) {
-        perror("opendir");
-        exit(EXIT_FAILURE);
-    }
+	/** Open the specified directory */
+	dir = opendir(path);
 
-    /** Read and print information about each entry in the directory */
-    while ((entry = readdir(dir)) != NULL) {
-        printf("%s\t", entry->d_name);
-    }
+	/** Check if the directory is opened successfully */
+	if (dir == NULL)
+	{
+		perror("opendir");
+		exit(EXIT_FAILURE);
+	}
 
-    /** Close the directory */
-    closedir(dir);
+	/** Read and print information about each entry in the directory */
+	while ((entry = readdir(dir)) != NULL)
+	{
+		printf("%s\t", entry->d_name);
+	}
+
+	/** Close the directory */
+	closedir(dir);
 }
