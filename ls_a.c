@@ -1,10 +1,12 @@
 #include "shell.h"
+
 /**
 * listFilesInDirectory - entry point
 * @path: path to the directory to list
 * Description: lists all files and sub-directories of a directory
 * Return: Always 0 on success
 */
+
 void listFilesInDirectory(const char *path)
 {
 
@@ -30,3 +32,4 @@ void listFilesInDirectory(const char *path)
 	/** Close the directory */
 	closedir(dir);
 }
+
