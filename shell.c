@@ -10,7 +10,7 @@ int main(void)
 
 	while (1)
 	{
-		custom_prompt();
+		printPrompt();
 		read_line();
 
 	/* Call the function with the specified path */
