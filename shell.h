@@ -11,7 +11,7 @@
 #define BUFSIZE 1024
 
 /* custom_prompt  */
-int custom_prompt(void);
+void custom_prompt(void);
 /* read_line.c -> reading the user input */
 char *read_line(void);
 
