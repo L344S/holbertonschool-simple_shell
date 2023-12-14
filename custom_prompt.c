@@ -1,15 +1,14 @@
 #include "shell.h"
 
 /**
-* show_prompt - entry point
+* custom_prompt - entry point
 * Return: Always 0 on success
 */
 
-int custom_prompt(void)
+void custom_prompt(void)
 {
 	/* Define */
-	char *prompt = "<3 ";
+	char *prompt = "♥ ";
 	/* Print the prompt */
 	printf("%s", prompt);
-	return (0);
 }
