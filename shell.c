@@ -15,6 +15,7 @@ int main(void)
 		line = read_line();
 
 		tokens = tokenize_line(line);
+		execute_ls();
 
 		for (i = 0; tokens[i] != NULL; i++)
 		{
