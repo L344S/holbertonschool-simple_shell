@@ -29,9 +29,9 @@ int emptyLine(char *line);
 /* execute.c */
 int execute(char **args);
 /* get_env.c */
-char *_getenv(char *name);
-/* get_path.c */
-char *get_path(char *file);
+char *getEnv(char *name);
+/* getPath.c */
+char *getPath(char *file);
 /* free2.c */
 void freeDP(char **args);
 /* free2.c */
