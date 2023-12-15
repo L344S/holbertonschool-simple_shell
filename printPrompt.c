@@ -6,7 +6,6 @@
 * Only if stdin is associated with a terminal
 * Return: Always 0 on success
 */
-
 int printPrompt(void)
 {
     /* Define prompt */
