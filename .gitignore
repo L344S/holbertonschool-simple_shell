@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-# excutable file
+# Ignore executable files
 hsh
 mypid
 myppid
-=======
 # Ignore everything in SSS directory
 SSS/
-# Ignore executable files
-hsh
->>>>>>> refs/remotes/origin/main
