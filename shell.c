@@ -14,6 +14,8 @@ int main(void)
 	size_t len = 0;
 	ssize_t read;
 
+	printPrompt();
+
 	while ((read = getline(&input_line, &len, stdin)) != -1)
 	{
 		/* Remove newline character from getline */
