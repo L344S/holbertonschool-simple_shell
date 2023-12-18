@@ -9,20 +9,24 @@
 */
 int main(void)
 {
-	char *input_line = NULL; /* Store the user input line */
-	char **command_arguments; /* Store array of commands arguments */
+	char *input_line = NULL;
+	char **command_arguments;
+	size_t len = 0;
+	ssize_t read;
 
-	/* Infinite loop to run the shell */
-	while (1) /* 1 is true */
+	while ((read = getline(&input_line, &len, stdin)) != -1)
 	{
-		printPrompt(); /* Print the custom prompt of our shell */
-		input_line = readLine(); /* Get the input line from the user */
+		/* Remove newline character from getline */
+		input_line[read - 1] = '\0';
+		/* Print the prompt */
+		printPrompt();
 
 		/* Check if emptyLine is filled with spaces or tabs */
 		if (emptyLine(input_line) == 1) /* 1 is true */
 		{
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
 		}
+
 		/* Parse the input line and store them in command_arguments array*/
 		command_arguments = parseLine(input_line);
 
@@ -37,10 +41,11 @@ int main(void)
 			fprintf(stderr, "hsh: command not found: %s\n", command_arguments[0]);
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
 		}
+
 		freeDP(command_arguments); /* Free the command_arguments array */
 		command_arguments = NULL; /* Set command_arguments to NULL */
 	}
-	free(input_line); /* Free the input_line */
 
+	free(input_line); /* Free the input_line */
 	return (0); /* Return 0 on success */
 }
