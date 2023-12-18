@@ -30,8 +30,7 @@ int main(void)
 		if (strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
-			free(input_line);         /* Free the input_line */
-			exit (0);               /* Return 0 on success */
+			break;               /* Return 0 on success */
 		}
 
 		/* Check if the user input is not a built-in command */
