@@ -47,7 +47,6 @@ int main(void)
 		freeDP(command_arguments); /* Free the command_arguments array */
 		command_arguments = NULL; /* Set command_arguments to NULL */
 	}
-
 	free(input_line); /* Free the input_line */
 	return (0); /* Return 0 on success */
 }
