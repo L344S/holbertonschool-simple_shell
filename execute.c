@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * execute - execute the command
  * @args: array of arguments -> command and arguments
@@ -8,43 +7,42 @@
  */
 int execute(char **args)
 {
-	/* to store the abbolute path of the command */
-	char *path_cmd = NULL, **env = environ; /* to store the env array */
-	pid_t child_pid; /* to store the child_pid of the child process */
-	int child_status, executeOK; /* to store the status cp and execve func */
+	char *path_cmd = NULL;
+	pid_t child_pid;
+	int child_status;
 
-	/* Check if the command is env a built-in command */
-	if (strcmp(args[0], "env") == 0) /* compare if args0 == env */
+	if (strcmp(args[0], "env") == 0)
 	{
-		while (*env) /* Go through the env array */
-		{
-			printf("%s\n", *env); /* Print each env variable */
-			env++;
-		}
-		return (0); /* Return 0 on success */
+		while (*environ)
+			printf("%s\n", *environ++);
+		return (0);
 	}
-	path_cmd = getPath(args[0]); /* Get the abbolute path of the command */
-	if (path_cmd == NULL) /* If getPath fails -> command not found */
+	if (strcmp(args[0], "cd") == 0)
+	{
+		if (args[1] == NULL)
+			chdir(getenv("HOME"));
+		else if (chdir(args[1]) != 0)
+			perror("cd");
+		return (0);
+	}
+	path_cmd = getPath(args[0]);
+	if (path_cmd == NULL)
 		return (-1);
-
-	child_pid = fork(); /* Create a new childprocess copy of our current process*/
-	if (child_pid == -1) /* If create child process fails */
+	child_pid = fork();
+	if (child_pid == -1)
 	{
-		perror("Error ; fork failed"); /* Print error message */
-		free(path_cmd); /* Free the path_cmd */
-		return (-1); /* -1 on failure */
-	} else if (child_pid == 0) /* If create child process success */
-	{
-		executeOK = execve(path_cmd, args, environ); /* Execute the command */
-		if (executeOK == -1) /* If execute fails == -1 */
-		{
-			perror("Error ; execve failed"); /* Print error message */
-			return (-1); /* -1 on failure */
-		}
-	} else
-	{
-		waitpid(child_pid, &child_status, 0); /* Wait for cp to finish */
+		perror("Error ; fork failed");
+		free(path_cmd);
+		return (-1);
 	}
-	free(path_cmd); /* Free the path_cmd */
-	return (0); /* Return 0 on success */
+	else if (child_pid == 0)
+	{
+		if (execve(path_cmd, args, environ) == -1)
+			perror("Error ; execve failed");
+		exit(EXIT_FAILURE);
+	}
+	else
+		waitpid(child_pid, &child_status, 0);
+	free(path_cmd);
+	return (0);
 }
