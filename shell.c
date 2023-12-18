@@ -31,7 +31,7 @@ int main(void)
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
-			return (0);               /* Return 0 on success */
+			exit (0);               /* Return 0 on success */
 		}
 
 		/* Check if the user input is not a built-in command */
