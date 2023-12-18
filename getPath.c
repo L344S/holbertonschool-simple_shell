@@ -37,7 +37,7 @@ char *getPath(char *file)
 		/* size of the path + size of the file + '/' + '\0' */
 		file_path = malloc(sizeof(char) * (strlen(path) + strlen(file) + 2));
 		/* concatenate the path with the file name using sprintf and / to separate */
-		sprintf(file_path, "%s/%s", path, file);
+		snprintf(file_path, sizeof(file_path), "%s/%s", path, file);
 		if (stat(file_path, &file_info) == 0 || file_path == NULL)
 		{
 			free(path_env); /* if file exists or file_path is NULL free path_env */
