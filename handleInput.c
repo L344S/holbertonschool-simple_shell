@@ -22,8 +22,9 @@ int emptyLine(char *line)
 		{
 			/* set only_spaces to false */
 			only_spaces = false;
-			break; /* break out of the loop */
+			 /* break out of the loop */
 		}
+		break;
 	}
 	/* return only_spaces as 1 if true, 0 if false */
 	return (only_spaces);
