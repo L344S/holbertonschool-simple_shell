@@ -27,10 +27,11 @@ int main(void)
 		command_arguments = parseLine(input_line);
 
 		/* Check if the user wants to exit the shell */
-		if (read <= 0 || strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
+		if (read <= 0 || strcmp(command_arguments[0], "exit") == 0)
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
-			break;               /** Exit of the loop */
+			free(input_line);
+			exit(0);               /** Exit of the loop */
 		}
 
 		/* Check if the user input is not a built-in command */
