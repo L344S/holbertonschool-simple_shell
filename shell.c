@@ -27,9 +27,11 @@ int main(void)
 		command_arguments = parseLine(input_line);
 
 		/* Check if the user wants to exit the shell */
-		if (strcmp(command_arguments[0], "exit") == 0)
+		if (strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
 		{
-			shell_exit(command_arguments, input_line);
+			freeDP(command_arguments); /* Free the command_arguments array */
+			free(input_line);         /* Free the input_line */
+			exit (0);               /* Return 0 on success */
 		}
 
 		/* Check if the user input is not a built-in command */
@@ -43,28 +45,4 @@ int main(void)
 	}
 	free(input_line); /* Free the input_line */
 	return (0);       /* Return 0 on success */
-}
-
-
-
-/**
- * shell_exit - A function that exits the shell.
- * @command: The pointer to tokenized command.
- * @input: The pointer to input line.
- * Return: Nothing.
- */
-void shell_exit(char **command, char *input)
-{
-	int status = 0;
-
-	if (command[1] == NULL)
-	{
-		freeDP(command);
-		free(input);  /** Free the input_line buffer */
-		exit(EXIT_SUCCESS);
-	}
-	status = atoi(command[1]);
-	freeDP(command);  /** Free the command_arguments array */
-	free(input); /** Free the input_line buffer */
-	exit(status);
 }
