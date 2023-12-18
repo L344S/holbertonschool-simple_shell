@@ -35,6 +35,5 @@ char *getPath(char *file);
 void freeDP(char **args);
 /* free2.c */
 void freeMemory(char **tokens, size_t count);
-/* exit shell function*/
-void shell_exit(char **command, char *input);
+
 #endif
