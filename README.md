@@ -1,4 +1,4 @@
-# <center> 𝒮𝒾𝓂𝓅𝓁𝑒 𝒮𝒽𝑒𝓁𝓁 </center>
+# 𝒮𝒾𝓂𝓅𝓁𝑒 𝒮𝒽𝑒𝓁𝓁
 
 ## Table of Contents
 - [Description](#description)
