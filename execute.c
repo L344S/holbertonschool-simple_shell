@@ -27,33 +27,23 @@ int execute(char **args)
 			perror("cd");
 		return (0);
 	}
-
 	path_cmd = getPath(args[0]);
 	if (path_cmd == NULL)
-	{
-		fprintf(stderr, "Error: Command not found: %s\n", args[0]);
 		return (-1);
-	}
-
 	child_pid = fork();
 	if (child_pid == -1)
 	{
 		perror("Error: fork failed");
 		free(path_cmd);
 		return (-1);
-	}
-	else if (child_pid == 0)
+	} else if (child_pid == 0)
 	{
 		environ = original_environ; /** Restore ... in the child process */
 		if (execve(path_cmd, args, environ) == -1)
-		{
 			perror("Error: execve failed");
-			exit(EXIT_FAILURE);
-		}
-	}
-	else
+		exit(EXIT_FAILURE);
+	} else
 		waitpid(child_pid, &child_status, 0);
-
 	free(path_cmd);
 	return (0);
 }
