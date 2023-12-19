@@ -18,7 +18,7 @@ extern char **environ;
 
 /* ----------Prototypes---------- */
 /* shell.c */
-int printPrompt(void);
+void printPrompt(void);
 /* ReadLine.c */
 char *readLine(void);
 /* parseLine.c */
