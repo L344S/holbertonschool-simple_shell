@@ -9,15 +9,16 @@
 int main(void)
 {
 	char *input_line = NULL;
-
 	char **command_arguments;
-
 	size_t len = 0;
 	ssize_t read;
+	int status = 1;
 
-	while (1)
+	while (status)
 	{
-		printPrompt(); /* Print the prompt */
+		status = isatty(0);
+		if (status == 1)
+			printPrompt(); /* Print the prompt */
 		read = getline(&input_line, &len, stdin);
 		if (read == -1) /* Check for EOF or error */
 			break;
@@ -25,18 +26,20 @@ int main(void)
 		if (emptyLine(input_line) == 1) /* 1 is true */
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
 		command_arguments = parseLine(input_line); /* check */
-		if (strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
+		if (input_line == NULL || strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
 			exit(0);               /* Return 0 on success */
 		}        /* Check if the user input is not a built-in command */
 		if (execute(command_arguments) == -1)
-		{
-			/* Print error message */
-			fprintf(stderr, "hsh: command not found: %s\n", command_arguments[0]);
-			continue; /* Go back to the beginning of the loop (printPrompt again) */
-		}
+        {
+            /* Print error message */
+            fprintf(stderr, "hsh: command not found: %s\n", command_arguments[0]);
+            freeDP(command_arguments); /* Free the command_arguments array */
+            free(input_line);         /* Free the input_line */
+            return 2; /* Return 2 on error */
+        }
 		freeDP(command_arguments); /* Free the command_arguments array */
 	}
 	free(input_line); /* Free the input_line */
