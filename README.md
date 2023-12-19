@@ -12,7 +12,7 @@
 This is a simple shell program implemented in C. It provides basic functionality such as executing commands and navigating directories.
 
 ### Flowchart
-![Screenshot](./SSS/Capture%20d’écran%202023-12-19%20à%2007.43.31.png)
+![Screenshot](./Docs/flowchart.png)
 
 ### Features
 
@@ -23,7 +23,7 @@ This is a simple shell program implemented in C. It provides basic functionality
 - Custom prompt
 
 ### Screenshots
-![Screenshot](./SSS/Capture%20d’écran%202023-12-19%20à%2007.02.46.png)
+![Screenshot](./Docs/screenshot.png)
 
 ## Run Locally
 ### Prerequisites
