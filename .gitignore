@@ -2,3 +2,5 @@
 hsh
 # Ignore everything in SSS directory
 SSS/
+# Ignore man pages
+man_hsh.1.gz
