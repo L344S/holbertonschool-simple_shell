@@ -36,15 +36,13 @@ int execute(char **args)
 		perror("Error: fork failed");
 		free(path_cmd);
 		return (-1);
-	}
-	else if (child_pid == 0)
+	} else if (child_pid == 0)
 	{
 		environ = original_environ; /** Restore ... in the child process */
 		if (execve(path_cmd, args, environ) == -1)
 			perror("Error: execve failed");
 		exit(EXIT_FAILURE);
-	}
-	else
+	} else
 		waitpid(child_pid, &child_status, 0);
 	free(path_cmd);
 	return (0);
