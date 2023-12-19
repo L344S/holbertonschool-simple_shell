@@ -31,7 +31,7 @@ int main(void)
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
-			exit(0);
+			exit(isatty(fileno(stdin)) ? 0 : 2); /* Exit with status code 0 in interactive mode, 2 in non-interactive mode */
 		}
 
 		/* Check if the user input is not a built-in command */
