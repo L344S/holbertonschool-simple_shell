@@ -53,8 +53,12 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 
 ### Man page
-```sh
+This project includes a man page for the Simple Shell program.
+```bash
+# Display the man page of the _printf function
 $ man man_hsh
+or
+$ man ./man_hsh
 ```
 
 ## Example of use
