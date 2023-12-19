@@ -8,18 +8,18 @@
  */
 int main(void)
 {
-	char *input_line = NULL;
+	char *input_line;
 	char **command_arguments;
-	size_t len = 0;
-	ssize_t read;
-	int interactive_mode = isatty(STDIN_FILENO); /** Check if stdin is a terminal */
+	int status = 1;
+	int return_code = 0;
 
-	while (1)
+	while (status)
 	{
-		printPrompt(); /* Print the prompt */
-		read = getline(&input_line, &len, stdin);
-		if (read == -1) /* Check for EOF or error */
-			break;
+		status = isatty(0); /** Check if the program is running in interactive mode */
+		if (status == 1)
+			printPrompt(); /* Print the prompt */
+		input_line = readLine();
+
 		/* Check if emptyLine is filled with spaces or tabs */
 		if (emptyLine(input_line) == 1) /* 1 is true */
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
@@ -28,14 +28,11 @@ int main(void)
 		command_arguments = parseLine(input_line);
 
 		/* Check if the user wants to exit the shell */
-		if (strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
+		if (input_line == NULL || strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
-			if (interactive_mode)
-				exit(0); /* Exit with status code 0 in interactive mode */
-			else
-				exit(2); /* Exit with status code 2 in non-interactive mode */
+			exit(0);
 		}
 
 		/* Check if the user input is not a built-in command */
@@ -43,10 +40,11 @@ int main(void)
 		{
 			/* Print error message */
 			fprintf(stderr, "hsh: command not found: %s\n", command_arguments[0]);
+			return_code = 2;
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
 		}
 		freeDP(command_arguments); /* Free the command_arguments array */
 	}
 	free(input_line); /* Free the input_line */
-	return (0);       /* Return 0 on success */
+	return (return_code); /** Return 0 or 2*/
 }
