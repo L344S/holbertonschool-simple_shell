@@ -76,16 +76,28 @@ leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 ```
 
 ## Commands
+
 ### Native
-| Command  | Description |
-| -------- |:------------|
-| ls      | Displays the current environment |
-| mv     | Causes the shell to terminate |
+
+| Commande           | Description                          |
+|--------------------|----------------------------------------------------------------|
+| ls               | List files and directories in the current directory.           |                                           |
+| pwd              | Print the current working directory.                          |
+| cp               | Copy files or directories.                                    |
+| mv               | Move or rename files or directories.                          |
+| rm               | Remove files or directories.                                  |
+| mkdir            | Create a new directory.                                       |
+| rmdir            | Remove an empty directory.                                    |
+| cat              | Concatenate and display the content of files.                 |
+| more or less  | Display the contents of a file one screen at a time.         |                     |
+| touch            | Create an empty file or update the access and modification times of a file. |
+
+
 ### Built-in
 | Command  | Description |
 | -------- |:------------|
 | env      | Displays the current environment |
-| cd     | Causes the shell to terminate |
+| cd     | Change directory.   |
 | exit     | Causes the shell to terminate |
 
 
