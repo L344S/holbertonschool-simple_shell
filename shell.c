@@ -1,20 +1,17 @@
 #include "shell.h"
 /**
-* main - entry point of the program
-* Description: run the shell program
-* Only if stdin is associated with a terminal
-* Print the prompt, get the input, parse the input line, execute the command
-* Return: 0 on success or a number on failure
-*/
+ * main - entry point of the program
+ * Description: run the shell program
+ * Only if stdin is associated with a terminal
+ * Print the prompt, get the input, parse the input line, execute the command
+ * Return: 0 on success or a number on failure
+ */
 int main(void)
 {
-<<<<<<< HEAD
     char *input_line = NULL;
     char **command_arguments;
     size_t len = 0;
-    ssize_t read;
-	
-	while (1)
+    ssize_t read;    while (1)
     {
         printPrompt(); /* Print the prompt */
         read = getline(&input_line, &len, stdin);
