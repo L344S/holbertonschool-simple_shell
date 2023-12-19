@@ -36,6 +36,12 @@ char *getPath(char *file)
 		/* allocate memory for the file path */
 		/* size of the path + size of the file + '/' + '\0' */
 		file_path = malloc(sizeof(char) * (strlen(path) + strlen(file) + 2));
+		/* if malloc fails to allocate memory, return NULL*/
+		if (file_path == NULL)
+		{
+    		perror("Error: malloc failed");
+    		return (NULL);
+		}
 		/* concatenate the path with the file name using sprintf and / to separate */
 		sprintf(file_path, "%s/%s", path, file);
 		if (file_path != NULL && stat(file_path, &file_info) == 0)
