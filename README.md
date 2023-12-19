@@ -11,6 +11,8 @@
 
 This is a simple shell program implemented in C. It provides basic functionality such as executing commands and navigating directories.
 
+The shell supports both interactive and non-interactive modes. In interactive mode, users can type commands directly into the shell. In non-interactive mode, the shell reads commands from a file or a string.
+
 ### Flowchart
 ![Screenshot](./Docs/flowchart.png)
 
