@@ -52,7 +52,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 
 ### Man page
 ```sh
-$ commande à créer
+$ man man_hsh
 ```
 
 ## Example of use
