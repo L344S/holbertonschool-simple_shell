@@ -12,7 +12,7 @@ int main(void)
 	char **command_arguments;
 	size_t len = 0;
 	ssize_t read;
-	int interactive_mode = isatty(fileno(stdin));
+	int interactive_mode = isatty(STDIN_FILENO); /** Check if stdin is a terminal */
 
 	while (1)
 	{
@@ -33,9 +33,9 @@ int main(void)
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
 			if (interactive_mode)
-                exit(0); /* Exit with status code 0 in interactive mode */
-            else
-                exit(2); /* Exit with status code 2 in non-interactive mode */
+				exit(0); /* Exit with status code 0 in interactive mode */
+			else
+				exit(2); /* Exit with status code 2 in non-interactive mode */
 		}
 
 		/* Check if the user input is not a built-in command */
