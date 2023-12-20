@@ -31,7 +31,7 @@ int main(void)
         }        /* Check if the user input is not a built-in command */
         if (execute(command_arguments) == -1)
         {
-            /* Print error message */
+            /* Print error message TESTTTTTTTTTTTT */
             fprintf(stderr, "hsh: command not found: %s\n", command_arguments[0]);
 			freeDP(command_arguments); /* Free the command_arguments array */
             continue; /* Go back to the beginning of the loop (printPrompt again) */
