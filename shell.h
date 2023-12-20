@@ -1,20 +1,21 @@
 #ifndef SHELL_H
 #define SHELL_H
+/* include guard -> prevent double inclusion */
 
 /* ----------Libraries---------- */
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
+#include <stdio.h> /* printf, fprintf, stderr */
+#include <stdlib.h> /* malloc, free, exit */
+#include <stdbool.h> /* boolean data type */
+#include <unistd.h> /* fork, execve, access, isatty, chdir */
+#include <string.h> /* strcmp, strtok, strdup */
+#include <sys/wait.h> /* wait */
+#include <sys/stat.h> /* stat */
 
 /* ----------Macros---------- */
-extern char **environ;
-#define BUFSIZE 1024
-#define SPACE ' '
-#define TAB '\t'
+extern char **environ; /* extern -> array of strings of env variable */
+#define BUFSIZE 1024 /* Buffer size */
+#define SPACE ' ' /* Shorthand -> Space */
+#define TAB '\t' /* Shorthand -> Tab */
 
 /* ----------Prototypes---------- */
 /* shell.c */
