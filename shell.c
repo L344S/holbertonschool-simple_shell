@@ -46,6 +46,7 @@ int main(void)
 			/* Print error message */
 			fprintf(stderr, "./hsh: 1: %s: not found\n", command_arguments[0]);
 			freeDP(command_arguments); /* Free the command_arguments array */
+			free(input_line);
 			exit(127); /* Return 127 on failure */
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
 		}
