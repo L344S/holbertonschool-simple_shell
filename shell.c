@@ -27,10 +27,8 @@ int main(void)
 		command_arguments = parseLine(input_line);
 		if (strcmp(command_arguments[0], "exit") == 0) /* compare if arg0 == exit */
 		{
-			freeDP(command_arguments); /* Free the command_arguments array */
-			free(input_line);         /* Free the input_line */
-		if (command_arguments[1] == NULL)
-		{
+			if (command_arguments[1] == NULL)
+			{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line); /* Free the input_line */
 			exit(0); /* Return 0 on success */
