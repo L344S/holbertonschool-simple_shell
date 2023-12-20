@@ -12,7 +12,7 @@
 #include <sys/stat.h> /* stat */
 
 /* ----------Macros---------- */
-extern char **environ; /* extern -> array of strings of env variable */
+extern char **environ; /* Extern -> array of strings of env variable */
 #define BUFSIZE 1024 /* Buffer size */
 #define SPACE ' ' /* Shorthand -> Space */
 #define TAB '\t' /* Shorthand -> Tab */
