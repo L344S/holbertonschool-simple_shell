@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * execute - execute the command
  * @args: array of arguments -> command and arguments
@@ -27,12 +28,18 @@ int execute(char **args)
 			perror("cd");
 		return (0);
 	}
+
 	path_cmd = getPath(args[0]);
 	if (path_cmd == NULL)
 		return (-1);
+
 	child_pid = fork();
 	if (child_pid == -1)
+	{
 		perror("Error: fork failed");
+		free(path_cmd);
+		return (-1);
+	}
 	else if (child_pid == 0)
 	{
 		environ = original_environ; /** Restore ... in the child process */
@@ -40,10 +47,24 @@ int execute(char **args)
 		{
 			perror("Error: execve failed");
 			free(path_cmd);
+			exit(EXIT_FAILURE);
 		}
-		exit(EXIT_FAILURE);
-	} else
+		/** The following line should not be reached if execve succeeds */
+		free(path_cmd);
+		exit(EXIT_SUCCESS);
+	}
+	else
+	{
 		waitpid(child_pid, &child_status, 0);
-	free(path_cmd);
-	return (0);
+
+		/** Check the status to determine if the child process succeeded */
+		if (WIFEXITED(child_status) && WEXITSTATUS(child_status) != 0)
+		{
+			/** Handle the case where execve failed (e.g., command not found) */
+			fprintf(stderr, "Error: Child process failed to execute.\n");
+		}
+
+		free(path_cmd);
+		return (0);
+	}
 }
