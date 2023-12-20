@@ -40,6 +40,7 @@ char *getPath(char *file)
 		if (file_path == NULL)
 		{
     		perror("Error: malloc failed");
+			free(file_path);
     		return (NULL);
 		}
 		/* concatenate the path with the file name using sprintf and / to separate */
