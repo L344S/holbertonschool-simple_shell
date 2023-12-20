@@ -34,7 +34,7 @@ int main(void)
 		if (execute(command_arguments) == -1)
 		{
 			/* Print error message */
-			fprintf(stderr, "./hsh: 1: %s: not found\n", read, command_arguments[0]);
+			fprintf(stderr, "./hsh: 1: %s: not found\n", command_arguments[0]);
 			freeDP(command_arguments); /* Free the command_arguments array */
 			exit(127); /* Return 127 on failure */
 			continue; /* Go back to the beginning of the loop (printPrompt again) */
