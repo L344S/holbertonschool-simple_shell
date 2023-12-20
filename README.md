@@ -82,6 +82,12 @@ leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 ```
 
 ## Commands
+### ♡ Built-in
+| Command  | Description |
+| -------- |:------------|
+| env      | Displays the current environment |
+| cd     | Change directory.   |
+| exit     | Causes the shell to terminate |
 
 ### ♡ Native
 
@@ -97,14 +103,6 @@ leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 | cat              | Concatenate and display the content of files.                 |
 | more or less  | Display the contents of a file one screen at a time.         |                     |
 | touch            | Create an empty file or update the access and modification times of a file. |
-
-
-### ♡ Built-in
-| Command  | Description |
-| -------- |:------------|
-| env      | Displays the current environment |
-| cd     | Change directory.   |
-| exit     | Causes the shell to terminate |
 
 
 ## Authors
