@@ -40,9 +40,10 @@ int execute(char **args)
 		{
 			perror("Error: execve failed");
 			free(path_cmd);
-			exit(EXIT_FAILURE);
 		}
+		exit(EXIT_FAILURE);
 	} else
 		waitpid(child_pid, &child_status, 0);
+	free(path_cmd);
 	return (0);
 }

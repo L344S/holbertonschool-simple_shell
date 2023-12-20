@@ -43,8 +43,8 @@ char *getPath(char *file)
 			free(file_path);
     		return (NULL);
 		}
-		snprintf(file_path, strlen(path) + strlen(file) + 2, "%s/%s", path, file);
 		/* concatenate the path with the file name using sprintf and / to separate */
+		sprintf(file_path, "%s/%s", path, file);
 		if (file_path != NULL && stat(file_path, &file_info) == 0)
 		{
 			free(path_env); /* if file exists or file_path is NULL free path_env */
