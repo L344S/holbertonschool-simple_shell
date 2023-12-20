@@ -37,8 +37,11 @@ int execute(char **args)
 	{
 		environ = original_environ; /** Restore ... in the child process */
 		if (execve(path_cmd, args, environ) == -1)
+		{
 			perror("Error: execve failed");
-		exit(EXIT_FAILURE);
+			free(path_cmd);
+			exit(EXIT_FAILURE);
+		}
 	} else
 		waitpid(child_pid, &child_status, 0);
 	free(path_cmd);
