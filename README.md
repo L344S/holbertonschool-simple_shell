@@ -1,4 +1,4 @@
-# 𝒮𝒾𝓂𝓅𝓁𝑒 𝒮𝒽𝑒𝓁𝓁
+# Simple Shell ♡
 
 ## Table of Contents
 - [Description](#description)
@@ -13,10 +13,10 @@ This is a simple shell program implemented in C. It provides basic functionality
 
 The shell supports both interactive and non-interactive modes. In interactive mode, users can type commands directly into the shell. In non-interactive mode, the shell reads commands from a file or a string.
 
-### Flowchart
+### ♡ Flowchart
 ![Screenshot](./Docs/flowchart.png)
 
-### Features
+### ♡ Features
 
 - Executes commands
 - Navigates directories
@@ -24,18 +24,18 @@ The shell supports both interactive and non-interactive modes. In interactive mo
 - Built-in commands: `cd`, `env` and `exit`
 - Custom prompt
 
-### Screenshots
+### ♡ Screenshot
 ![Screenshot](./Docs/screenshot.png)
 
 ## Run Locally
-### Prerequisites
+### ♡ Prerequisites
 To install and run this program, ensure you have the following:
 
 - Operating System: Ubuntu 20.04 LTS
 - Compiler: gcc
 - Compiler Options: -Wall -Werror -Wextra -pedantic -std=gnu89
 
-### Installation
+### ♡ Installation
 Use the following command to install the custom Shell program:
 
 ```bash
@@ -52,7 +52,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ./hsh
 ```
 
-### Man page
+#### Man page
 This project includes a man page for the Simple Shell program.
 ```bash
 # Display the man page of the _printf function
@@ -62,7 +62,7 @@ $ man ./man_hsh
 ```
 
 ## Example of use
-### Interactive mode
+### ♡ Interactive mode
 ```sh
 leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell % ./hsh
 ♥ ls
@@ -73,7 +73,7 @@ SSS             free2.c         getPath.c       hsh             printPrompt.c   
 ♥ exit
 leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 ```
-### Non-interactive mode
+### ♡ Non-interactive mode
 ```sh
 leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell % echo "/bin/ls" | ./hsh
 README.md       execute.c       getEnv.c        handleInput.c   parseLine.c     readLine.c      shell.h
@@ -83,7 +83,7 @@ leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 
 ## Commands
 
-### Native
+### ♡ Native
 
 | Commande           | Description                          |
 |--------------------|----------------------------------------------------------------|
@@ -99,7 +99,7 @@ leasel@MacBook-Pro-de-Lea holbertonschool-simple_shell %
 | touch            | Create an empty file or update the access and modification times of a file. |
 
 
-### Built-in
+### ♡ Built-in
 | Command  | Description |
 | -------- |:------------|
 | env      | Displays the current environment |
