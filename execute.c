@@ -40,7 +40,7 @@ int execute(char **args)
 		free(path_cmd);
 		return (-1);
 	}
-	else if (child_pid == 0)
+	if (child_pid == 0)
 	{
 		environ = original_environ; /** Restore ... in the child process */
 		if (execve(path_cmd, args, environ) == -1)
@@ -49,22 +49,10 @@ int execute(char **args)
 			free(path_cmd);
 			exit(EXIT_FAILURE);
 		}
-		/** The following line should not be reached if execve succeeds */
-		free(path_cmd);
-		exit(EXIT_SUCCESS);
+		else
+			waitpid(child_pid, &child_status, 0);
 	}
-	else
-	{
-		waitpid(child_pid, &child_status, 0);
 
-		/** Check the status to determine if the child process succeeded */
-		if (WIFEXITED(child_status) && WEXITSTATUS(child_status) != 0)
-		{
-			/** Handle the case where execve failed (e.g., command not found) */
-			fprintf(stderr, "Error: Child process failed to execute.\n");
-		}
-
-		free(path_cmd);
-		return (0);
-	}
+	free(path_cmd);
+	return (0);
 }
