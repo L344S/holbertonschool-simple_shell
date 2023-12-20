@@ -29,7 +29,19 @@ int main(void)
 		{
 			freeDP(command_arguments); /* Free the command_arguments array */
 			free(input_line);         /* Free the input_line */
-			exit(0);               /* Return 0 on success */
+		if (command_arguments[1] == NULL)
+		{
+			freeDP(command_arguments); /* Free the command_arguments array */
+			free(input_line); /* Free the input_line */
+			exit(0); /* Return 0 on success */
+			}
+			else
+			{
+				freeDP(command_arguments); /* Free the command_arguments array */
+				free(input_line); /* Free the input_line */
+				exit(2); /* Return 2 if there is an argument after exit */
+				}
+		/* Return 0 on success */
 		}        /* Check if the user input is not a built-in command */
 		if (execute(command_arguments) == -1)
 		{
