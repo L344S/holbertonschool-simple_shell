@@ -44,6 +44,5 @@ int execute(char **args)
 		}
 	} else
 		waitpid(child_pid, &child_status, 0);
-	free(path_cmd);
 	return (0);
 }
