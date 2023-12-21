@@ -49,5 +49,5 @@ int main(void)
 		freeDP(command_arguments); /* Free memory of command_arguments array */
 	} /* End of while loop */
 	free(input_line); /* Free the memory of input_line */
-	return (0); /* return 0 on success */
+	return (0); /* return 0 on success*/
 }
