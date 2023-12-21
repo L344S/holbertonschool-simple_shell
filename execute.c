@@ -8,9 +8,9 @@
  */
 int execute(char **args)
 {
-	char *path_cmd = NULL;
-	pid_t child_pid;
-	int child_status;
+	char *path_cmd = NULL; /* Stores the path of the command */
+	pid_t child_pid; /* Stores the pid of the child process */
+	int child_status; /* Stores the status of the child process */
 	char **original_environ = environ; /** Save the original value of environ */
 
 	if (strcmp(args[0], "env") == 0)
