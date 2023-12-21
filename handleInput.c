@@ -3,7 +3,8 @@
 /**
  * emptyLine - check for a line with only spaces
  * @line: the line to check -> input from user
- * Return: 0 if not empty, 1 if line is filled with spaces or tabs
+ * description: check the given line is only full of spaces or tabs(true)
+ * Return: 0 (false) if not empty, 1(true) if line is full of spaces or tabs
  */
 int emptyLine(char *line)
 {
