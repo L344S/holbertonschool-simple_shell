@@ -7,50 +7,55 @@
  * Print the prompt, get the input, parse the input line, execute the command
  * Return: 0 on success or a number on failure
  */
-int main(void)
-{
-    char *input_line = NULL;         /* stores the input line by the user */
-    char **command_arguments = NULL; /* stores the parsed command arguments */
-    size_t len = 0;                   /* stores the length of the input line */
-    ssize_t read;	/* stores the result of getline (number of characters read) */
+int main(void) {
+    char *input_line = NULL;
+    char **command_arguments = NULL;
+    size_t len = 0;
+    ssize_t read;
+	int exit_status;
 
-    while (1) /* Infinite loop */
-    {
-        if (isatty(STDIN_FILENO))
-        {
-            printPrompt(); /* Calls a function to print the shell prompt. */
+    while (1) {
+        if (isatty(STDIN_FILENO)) {
+            printPrompt();
             fflush(stdout);
         }
 
-        read = getline(&input_line, &len, stdin); /* Read the input line */
+        read = getline(&input_line, &len, stdin);
 
-        if (read == EOF)
-        {
-            free(input_line); /* Free the input_line */
-            exit(0);          /* Exit with status 0 */
+        if (read == EOF) {
+            free(input_line);
+            exit(0); /* Exit with status 0 for EOF */
         }
 
-        command_arguments = parseLine(input_line); /* i_l - array command argument */
+        command_arguments = parseLine(input_line);
 
-        if (strcmp(command_arguments[0], "exit") == 0) /* Handle "exit" command */
-        {
-            freeDP(command_arguments); /* Free memory of command_arguments array */
-            free(input_line);         /* Free the input_line */
-            exit(0);                  /* Exit with status 0 */
+        if (strcmp(command_arguments[0], "exit") == 0) {
+            freeDP(command_arguments);
+            free(input_line);
+            exit(0);
         }
 
         if (emptyLine(input_line) == 1)
             continue;
 
-        if (execute(command_arguments) == -1)
-        {
-            free(input_line); /* Free the input_line */
-            exit(127);          /* Exit with status 2 */
+        exit_status = execute(command_arguments);
+
+        if (exit_status == 127) {
+            fprintf(stderr, "./hsh: 1: %s: command not found\n", command_arguments[0]);
+            free(input_line);
+            freeDP(command_arguments);
+            /* Handle the case of a wrong command here */
+        } else if (exit_status == -1) {
+            /* Handle other execution errors if needed */
+            fprintf(stderr, "./hsh: 1: %s: execution error\n", command_arguments[0]);
+            free(input_line);
+            freeDP(command_arguments);
+            exit(2); /* Exit with status 2 for other execution errors */
         }
+        
+        freeDP(command_arguments);
+    }
 
-        freeDP(command_arguments); /* Free memory of command_arguments array */
-    }                              /* End of while loop */
-
-    free(input_line); /* Free the memory of input_line */
-    return 0;         /* return 0 on success */
+    free(input_line);
+    return 0;
 }
