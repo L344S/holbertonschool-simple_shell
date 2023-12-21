@@ -44,7 +44,7 @@ int main(void) {
             fprintf(stderr, "./hsh: 1: %s: command not found\n", command_arguments[0]);
             free(input_line);
             freeDP(command_arguments);
-            /* Handle the case of a wrong command here */
+            exit(127);	/* Handle the case of a wrong command here */
         } else if (exit_status == -1) {
             /* Handle other execution errors if needed */
             fprintf(stderr, "./hsh: 1: %s: execution error\n", command_arguments[0]);
