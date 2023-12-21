@@ -45,7 +45,7 @@ int main(void)
         if (execute(command_arguments) == -1)
         {
             free(input_line); /* Free the input_line */
-            exit(2);          /* Exit with status 2 */
+            exit(127);          /* Exit with status 2 */
         }
 
         freeDP(command_arguments); /* Free memory of command_arguments array */
