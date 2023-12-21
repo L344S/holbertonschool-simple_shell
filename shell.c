@@ -16,7 +16,11 @@ int main(void)
 
 	while (1) /* Infinite loop */
 	{
-		printPrompt(); /* Calls a function to print the shell prompt. */
+		if (isatty(STDIN_FILENO))
+		{
+			printPrompt(); /* Calls a function to print the shell prompt. */
+			fflush(stdout);
+		}
 		read = getline(&input_line, &len, stdin); /* Read the input line */
 
 		if (emptyLine(input_line) == 1)
