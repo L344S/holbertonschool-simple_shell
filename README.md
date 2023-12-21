@@ -15,6 +15,8 @@ The shell supports both interactive and non-interactive modes. In interactive mo
 
 ### ♡ Flowchart
 ![Screenshot](./Docs/flowchart.png)
+### ♡ Trello 
+![Screenshot](./Docs/trello.png)
 
 ### ♡ Features
 
