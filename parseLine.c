@@ -8,45 +8,44 @@
 */
 char **parseLine(char *line)
 {
-	char *copy_line = NULL, *token = NULL; /* copy of line -> input of users*/
+	char *copy_line = NULL, *token = NULL; /* copy of the line -> input of users*/
 	char *delimiters = " \t\r\n\a"; /* delimiters of the line */
 	char **tokens = NULL; /* store the array of words */
 	int count_token = 0, i = 0; /* count the number of words and index */
 
-	copy_line = strdup(line); /* Duplicate the user input line to copy_line */
-	if (!copy_line) /* if strdup duplicate fails */
-		return (NULL); /* return NULL, indicating failure */
-	token = strtok(copy_line, delimiters); /* Split the line into words */
-	while (token) /* Loop through the line, count the number of words */
+	copy_line = strdup(line);
+	if (!copy_line) /* if strdup fails */
+		return (NULL);  /* Count the number of words in the line using delimiters */
+	token = strtok(copy_line, delimiters);
+	while (token)
 	{
 		count_token++; /* increment the number of words */
-		token = strtok(NULL, delimiters); /* get the next word until NULL */
+		token = strtok(NULL, delimiters); /* get the next word */
 	}
 	free(copy_line); /* free the copy of the line */
 	count_token++; /* increment the number of words for the NULL sign */
-	tokens = malloc(sizeof(char *) * count_token); /* Allocate memory for tokens*/
-	if (!tokens) /* if malloc allocation memory fails */
-		return (NULL); /* return NULL, indicating failure */
-	copy_line = strdup(line); /*Duplicate again the user input line to copy_line*/
-	if (!copy_line) /* if strdup duplicate fails */
+	tokens = malloc(sizeof(char *) * count_token);
+	if (!tokens) /* if malloc fails */
+		return (NULL); /* Duplicate the line again and split it into words */
+	copy_line = strdup(line);
+	if (!copy_line) /* if strdup fails */
 	{
-		free(tokens); /* free the tokens array */
-		return (NULL); /* return NULL, indicating failure */
-	}
-	token = strtok(copy_line, delimiters); /* Split the line into words */
-	while (token) /* Loop through the line, store the words in tokens array */
+		free(tokens);
+		return (NULL);
+	} /* Split the line into words and store them in tokens */
+	token = strtok(copy_line, delimiters);
+	while (token)
 	{
-		tokens[i] = strdup(token); /* Duplicate the token to tokens array */
-		if (!tokens[i]) /* if strdup duplicate fails */
+		tokens[i] = strdup(token);
+		if (!tokens[i]) /* if strdup fails */
 		{
-			free(tokens); /* free the tokens array */
-			free(copy_line); /* free the copy of the user's line */
-			return (NULL); /* return NULL, indicating failure */
-		} i++; /* increment the index */
-		token = strtok(NULL, delimiters); /* get the next word until NULL */
+			free(tokens);
+			free(copy_line);
+			return (NULL);
+		} i++;
+		token = strtok(NULL, delimiters);
 	}
 	tokens[i] = NULL; /* Null-terminate the array of tokens */
 	free(copy_line); /* free the copy of the line */
-	return (tokens); /* return the array of tokens */
+	return (tokens);
 }
-

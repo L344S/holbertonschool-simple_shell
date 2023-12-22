@@ -29,4 +29,3 @@ int emptyLine(char *line)
 	/* return only_spaces as 1 if true, 0 if false */
 	return (only_spaces);
 }
-

@@ -4,11 +4,11 @@
 * printPrompt - entry point
 * Description: prints the custom prompt of our shell program
 * Only if stdin is associated with a terminal
-* Return: Nothing (void)
+* Return: Nothing
 */
 void printPrompt(void)
 {
-    /* Declare and initialize a variable to store the prompt */
+    /* Define prompt */
 	char *prompt = "♥ ";
 	/* Check if stdin is associated with a terminal */
 	if (isatty(STDIN_FILENO) == true)

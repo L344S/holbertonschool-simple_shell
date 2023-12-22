@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * getPath - search for the file in the PATH
- * @file: the file to search for in the PATH
- * Description: search for the and send the absolute path to the file if found
- * Return: the file path if found, or NULL
- */
+* getPath - search for the file in the PATH
+* @file: the file to search for in the PATH
+* Description: search for the and send the absolute path to the file if found
+* Return: the file path if found, or NULL
+*/
 char *getPath(char *file)
 {
 	char *path = NULL; /* to store the path */
@@ -39,9 +39,8 @@ char *getPath(char *file)
 		/* if malloc fails to allocate memory, return NULL*/
 		if (file_path == NULL)
 		{
-    		perror("Error: malloc failed");
-			free(file_path);
-    		return (NULL);
+			perror("Error: malloc failed");
+			return (NULL);
 		}
 		/* concatenate the path with the file name using sprintf and / to separate */
 		sprintf(file_path, "%s/%s", path, file);
